@@ -1,5 +1,6 @@
 import React from "react";
 import useTimer from "../hooks/timer";
+import styles from "./Body.module.css";
 
 function Timer(props) {
   const t = props.time;
@@ -12,7 +13,7 @@ function Timer(props) {
   if (seconds === "00" && minutes === "00") {
     enable = true;
   }
-  return <div>{timer}</div>;
+  return <div className={styles.timer}>{'time left: '}{timer}</div>;
 }
 
 export default Timer;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from './Body.module.css'
 function ExamQuestion(props) {
   const [checkedStates, setCheckedStates] = useState(new Array(3).fill(false));
 
@@ -12,8 +12,8 @@ function ExamQuestion(props) {
     props.onAnswerHandler(props.number, event.target.id);
   };
   return (
-    <div>
-      <span>{props.number} </span>
+    <div  className={styles.question} >
+      <span>{props.number}{'-'} </span>
       <span>{props.title}</span>
       {props.answers.map((option, index) => (
         <div key={index}>
@@ -23,7 +23,6 @@ function ExamQuestion(props) {
             onChange={(e) => handleOnChange(e, index)}
             checked={checkedStates.findIndex((item) => item === true) === index}
           />
-          {checkedStates.findIndex((item) => item === true)}
           <label id={option}>{option}</label>
         </div>
       ))}

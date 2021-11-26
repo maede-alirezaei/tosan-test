@@ -4,7 +4,6 @@ function Header() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState(null);
-  const [examInfo, setExamInfo] = useState(null);
   const fetchHandler = useCallback(async () => {
     setError(null);
     setIsLoading(true);
@@ -15,8 +14,8 @@ function Header() {
         throw new Error();
       }
 
-      const examData = await response.json();
-      setExamInfo(examData);
+      const titleData = await response.json();
+      setTitle(titleData);
       console.log("error");
       setIsLoading(false);
     } catch (error) {
@@ -29,9 +28,10 @@ function Header() {
   }, [fetchHandler]);
   return (
     <Fragment>
-      <h1 style={{ textAlign: "center" }}>
-        {!isLoading && !error && examInfo}
-        {/* {"Title"} */}
+    
+      <h1 style={{ textAlign: "center",color: '#1e558b' }}>
+        {!isLoading && !error && title}
+        {"Title"}
       </h1>
     </Fragment>
   );

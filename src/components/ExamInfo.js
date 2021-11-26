@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Timer from "./Timer";
-
+import styles from './Body.module.css'
 function ExamInfo() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,15 +30,14 @@ function ExamInfo() {
 
   return (
     <h3>
-      {examInfo && <Timer time={examInfo.timeLimit} />}
       {!isLoading && !error && examInfo && (
-        <div>
-          <span>{examInfo.title}</span>
-          <span>{examInfo.date}</span>
+        <div className={styles['exam-info']}>
           <span>{examInfo.author}</span>
-          <span>{examInfo.timeLimit}</span>
+          <span>{examInfo.title}</span>
+          <span>{examInfo.date.substring(0,15)}</span>
         </div>
       )}
+      {examInfo && <Timer time={examInfo.timeLimit} />}
     </h3>
   );
 }

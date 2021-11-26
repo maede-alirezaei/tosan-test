@@ -1,6 +1,7 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import ExamInfo from "./ExamInfo";
 import ExamQuestion from "./ExamQuestion";
+import styles from './Body.module.css'
 
 function Body() {
   const [error, setError] = useState(null);
@@ -49,7 +50,7 @@ function Body() {
   };
 
   //sending the answers
-  const clickHandler = async (e) => {
+  const clickHandler = async () => {
     setError(null);
 
     try {
@@ -70,20 +71,21 @@ function Body() {
   return (
     <Fragment>
       <ExamInfo />
-
-      {!isLoading &&
-        !error &&
-        questionsInfo &&
-        questionsInfo.map((item, index) => (
-          <ExamQuestion
-            key={index}
-            number={item.number}
-            title={item.title}
-            answers={item.answers}
-            onAnswerHandler={answerHandler}
-          />
-        ))}
-      <button onClick={clickHandler}>{"submit"}</button>
+      <div className={styles.body}>
+        {!isLoading &&
+          !error &&
+          questionsInfo &&
+          questionsInfo.map((item, index) => (
+            <ExamQuestion
+              key={index}
+              number={item.number}
+              title={item.title}
+              answers={item.answers}
+              onAnswerHandler={answerHandler}
+            />
+          ))}
+        <button className={styles.button} onClick={clickHandler}>{"submit"}</button>
+      </div>
     </Fragment>
   );
 }

@@ -1,0 +1,58 @@
+.exam-info{
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+    margin:0 128px;
+    border-radius: 8px;
+    padding: 16px;
+    
+    color: #EDF5E1;
+    /* background-color: #379683; */
+    background-color: #1e558b;
+
+}
+.body{
+    color: #05386B;
+    background-color: #EDF5E1;
+    margin: 0 128px 128px 128px;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    
+}
+.timer{
+    color:#1b5085 ;
+    background-color: rgb(228, 100, 100);
+    margin: 16px auto 16px auto;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    width: 20%;
+}
+.question{
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+margin: 16px;
+padding: 16px;
+border-radius: 8px;
+
+}
+.button{
+border-radius: 8px;
+margin-left: 80%;
+margin-right: 128px;
+padding: 8px;
+width: 10%;
+border: none;
+color: wheat;
+background-color: #1b5085;
+cursor: pointer;
+box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+height: 44px;
+font-size: larger;
+}
+.button:hover{
+    background-color: #254b72;
+box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.2);
+
+}
