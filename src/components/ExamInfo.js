@@ -1,7 +1,7 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
-import Body from "./components/Body";
-import Header from "./components/Header";
-function App() {
+import { useCallback, useEffect, useState } from "react";
+import Timer from "./Timer";
+
+function ExamInfo() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [examInfo, setExamInfo] = useState(null);
@@ -27,14 +27,20 @@ function App() {
   useEffect(() => {
     fetchHandler();
   }, [fetchHandler]);
-  
+
   return (
-    <Fragment>
-      <Header />
-      <Body />
-    </Fragment>
+    <h3>
+      {examInfo && <Timer time={examInfo.timeLimit} />}
+      {!isLoading && !error && examInfo && (
+        <div>
+          <span>{examInfo.title}</span>
+          <span>{examInfo.date}</span>
+          <span>{examInfo.author}</span>
+          <span>{examInfo.timeLimit}</span>
+        </div>
+      )}
+    </h3>
   );
 }
 
-export default App;
-
+export default ExamInfo;
